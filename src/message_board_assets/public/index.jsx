@@ -2,7 +2,9 @@ import message_board from 'ic:canisters/message_board';
 import * as React from 'react';
 import { render } from 'react-dom';
 
-class MyHello extends React.Component {
+import './message_board.css'; // Import custom styles
+
+class MessageBoard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -31,7 +33,7 @@ class MyHello extends React.Component {
   render() {
     return (
       <div>
-        <div style={{ "background-color": "grey" }}>
+        <div class="message-board-title">
           <h1>Greetings, to the Guild DApp Message Board!</h1>
         </div>
         <div>
@@ -42,4 +44,4 @@ class MyHello extends React.Component {
   }
 }
 
-render(<MyHello />, document.getElementById('app'));
+render(<MessageBoard />, document.getElementById('app'));
