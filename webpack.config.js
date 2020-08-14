@@ -59,10 +59,14 @@ function generateWebpackConfigForCanister(name, info) {
     // tutorial, uncomment the following lines:
     // module: {
     //  rules: [
-    //    { test: /\.(js|ts)x?$/, loader: "ts-loader" },
     //    { test: /\.css$/, use: ['style-loader','css-loader'] }
     //  ]
     // },
+    module: {
+      rules: [
+        { test: /\.(js|ts)x?$/, loader: "ts-loader" }
+      ]
+    },
     plugins: [],
   };
 }

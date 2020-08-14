@@ -9,7 +9,7 @@
         "message_board"
       ],
       "frontend": {
-        "entrypoint": "src/message_board_assets/public/index.js"
+        "entrypoint": "src/message_board_assets/public/index.jsx"
       },
       "source": [
         "src/message_board_assets/assets",
