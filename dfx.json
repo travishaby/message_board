@@ -1,0 +1,40 @@
+{
+  "canisters": {
+    "message_board": {
+      "main": "src/message_board/main.mo",
+      "type": "motoko"
+    },
+    "message_board_assets": {
+      "dependencies": [
+        "message_board"
+      ],
+      "frontend": {
+        "entrypoint": "src/message_board_assets/public/index.js"
+      },
+      "source": [
+        "src/message_board_assets/assets",
+        "dist/message_board_assets/"
+      ],
+      "type": "assets"
+    }
+  },
+  "defaults": {
+    "build": {
+      "packtool": ""
+    }
+  },
+  "dfx": "0.6.3",
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:8000",
+      "type": "ephemeral"
+    },
+    "tungsten": {
+      "providers": [
+        "https://gw.dfinity.network"
+      ],
+      "type": "persistent"
+    }
+  },
+  "version": 1
+}
