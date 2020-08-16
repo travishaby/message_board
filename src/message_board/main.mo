@@ -1,5 +1,5 @@
 import types "types";
-import utils "utils";
+import Array "mo:base/Array";
 
 type Topic = types.Topic;
 
@@ -11,8 +11,14 @@ actor Board {
         topics;
     };
 
-    public func addTopic (title : Text, description : Text) : async () {
-        topics := utils.add(topics, nextId, title, description);
+    public func addTopic (titl : Text, desc : Text) : async Topic {
+        let topic : Topic = {
+            id = nextId;
+            title = titl;
+            description = desc;
+        };
+        topics := Array.append<Topic>(topics, [topic]);
         nextId += 1;
+        topic;
     };
 };

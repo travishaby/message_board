@@ -19,7 +19,7 @@ class MessageBoard extends React.Component {
 
   async getTopics() {
     const topics = await message_board.getTopics();
-    this.setState({ ...this.state, topics: topics });
+    this.setState({ topics: topics });
   }
 
   handleInputChange({target: {value, name}}) {
@@ -29,7 +29,8 @@ class MessageBoard extends React.Component {
   async handleCreate(submitEvent) {
     submitEvent.preventDefault()
     const { title, description } = this.state.newTopic
-    await message_board.addTopic(title, description)
+    const createdTopic = await message_board.addTopic(title, description)
+    this.setState(state => ({ topics: state.topics.concat(createdTopic)}))
   }
 
   renderTopics() {
