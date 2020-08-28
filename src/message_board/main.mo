@@ -30,4 +30,15 @@ actor Board {
             comment.topicId == topicId;
         });
     };
+
+    public func addComment (bod : Text, topId : Nat) : async Comment {
+        let comment : Comment = {
+            id = nextCommentId;
+            body = bod;
+            topicId = topId;
+        };
+        comments := Array.append<Comment>(comments, [comment]);
+        nextCommentId += 1;
+        comment;
+    };
 };
