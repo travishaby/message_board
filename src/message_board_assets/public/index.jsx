@@ -1,6 +1,7 @@
 import message_board from 'ic:canisters/message_board';
 import * as React from 'react';
 import { render } from 'react-dom';
+import { Topic } from './components/Topic.jsx'
 
 import './message_board.css'; // Import custom styles
 
@@ -34,12 +35,7 @@ class MessageBoard extends React.Component {
   }
 
   renderTopics() {
-    return this.state.topics.map(({title, description}) => (
-      <div>
-        <h3>{title}</h3>
-        <p>{description}</p>
-      </div>
-    ))
+    return this.state.topics.map(topic => <Topic {...topic}/>)
   }
 
   render() {
@@ -48,12 +44,12 @@ class MessageBoard extends React.Component {
         <div class="message-board-title">
           <h1>Greetings, to the Guild DApp Message Board!</h1>
         </div>
-        <div class="new-message">
+        <div class="new-topic">
           <form>
             <label htmlFor="title-input">Title</label>
-            <input onChange={this.handleInputChange.bind(this)} name="title" id="title-input" type="text" placeholder="Your topic's title"/>
+            <input class="new-topic-input" onChange={this.handleInputChange.bind(this)} name="title" id="title-input" type="text" placeholder="Your topic's title"/>
             <label htmlFor="description-input">Description</label>
-            <input onChange={this.handleInputChange.bind(this)} name="description" id="description-input" type="text" placeholder="Your topic's description"/>
+            <input class="new-topic-input" onChange={this.handleInputChange.bind(this)} name="description" id="description-input" type="text" placeholder="Your topic's description"/>
             <button onClick={this.handleCreate.bind(this)}>Create</button>
           </form>
         </div>

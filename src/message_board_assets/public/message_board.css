@@ -13,11 +13,12 @@ h1 {
   font-size: 32px;
 }
 
-div.new-entry {
+div.new-topic {
   margin: 30px 20px 30px 20px;
 }
 
-.new-entry > div {
+.new-topic-input {
+  display: block;
   margin-bottom: 15px;
 }
 
